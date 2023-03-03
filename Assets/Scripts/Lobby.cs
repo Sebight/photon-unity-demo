@@ -7,6 +7,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Lobby : MonoBehaviourPunCallbacks
 {
@@ -30,7 +31,7 @@ public class Lobby : MonoBehaviourPunCallbacks
 
     public void OnClickStartGame()
     {
-        PhotonNetwork.LoadLevel("Game");
+        PhotonNetwork.LoadLevel("Playground");
     }
 
     public void OnClickCreateRoom()
@@ -43,8 +44,8 @@ public class Lobby : MonoBehaviourPunCallbacks
         CreateRoomButton.normalText.text = "Creating...";
         CreateRoomButton.buttonText = "Creating...";
         CreateRoomButton.isInteractable = false;
-
-        string randomRoomName = Guid.NewGuid().ToString("N").Substring(0, 6);
+        
+        string randomRoomName = Random.Range(0, 999999).ToString("000000"); 
 
         PhotonNetwork.CreateRoom(randomRoomName, new Photon.Realtime.RoomOptions {MaxPlayers = 4});
     }
@@ -66,7 +67,7 @@ public class Lobby : MonoBehaviourPunCallbacks
 
     public void EnableStartButton()
     {
-        if (PhotonNetwork.PlayerList.Length > 1 && PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.PlayerList.Length > 0 && PhotonNetwork.IsMasterClient)
         {
             StartGameButton.isInteractable = true;
             StartGameButton.gameObject.SetActive(true);

@@ -37,9 +37,6 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            // bump the player using lerping position
-            // other.gameObject.GetComponent<Rigidbody>().AddForce(Rigidbody.velocity * 10);
-            other.gameObject.transform.position = Vector3.Lerp(other.gameObject.transform.position, other.gameObject.transform.position + Rigidbody.velocity, 0.5f);
         }
     }
 }

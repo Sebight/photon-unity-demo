@@ -131,6 +131,7 @@ namespace StarterAssets
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 PlayerManager.Instance.LocalPlayerRef = gameObject;
+                FlashlightManager.Instance.LocalFlashlightRef = GetComponentInChildren<Flashlight>();
             }
 
             NameTag.text = PV.Owner.NickName;

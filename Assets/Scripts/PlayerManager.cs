@@ -30,7 +30,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        // Handle ball throw
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             var forward = LocalPlayerRef.transform.forward;
@@ -39,6 +38,9 @@ public class PlayerManager : MonoBehaviour
                 LocalPlayerRef.transform.position + new Vector3(0, 1f, 0) + forward, 
                 Camera.main.transform.forward, 
                 1000f);
+        } else if (Keyboard.current.fKey.wasPressedThisFrame)
+        {
+            FlashlightManager.Instance.ToggleFlashlight();
         }
     }
 }

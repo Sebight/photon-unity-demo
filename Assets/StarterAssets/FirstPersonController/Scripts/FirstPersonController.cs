@@ -130,6 +130,7 @@ namespace StarterAssets
             else
             {
                 Cursor.lockState = CursorLockMode.Locked;
+                PlayerManager.Instance.LocalPlayerRef = gameObject;
             }
 
             NameTag.text = PV.Owner.NickName;

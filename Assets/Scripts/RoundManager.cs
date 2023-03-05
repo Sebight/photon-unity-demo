@@ -22,7 +22,7 @@ public class RoundManager : MonoBehaviour
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            SpawnCube();
+            // SpawnCube();
         }
     }
 
